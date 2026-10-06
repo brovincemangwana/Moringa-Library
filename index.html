@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Library System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="circulation.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Moringa School Library</h1>
+    <nav aria-label="Main">
+      <a href="#catalog">Catalog</a>
+      <a href="#add-book">Add a book</a>
+      <a href="#borrow">Borrow &amp; return</a>
+      <a href="#members">Members</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="catalog" class="panel">
+      <h2>Find a book</h2>
+      <label for="search">Search by title or author</label>
+      <input id="search" type="search" placeholder="e.g. Things Fall Apart">
+      <select id="filter-status" aria-label="Filter by availability">
+        <option value="all">All books</option>
+        <option value="available">Available</option>
+        <option value="borrowed">Borrowed</option>
+      </select>
+      <ul id="book-list" class="book-grid"></ul>
+      <p id="book-empty" class="empty" hidden>No books match your search. Try a different title or author.</p>
+    </section>
+
+    <section id="add-book" class="panel">
+      <h2>Add a book</h2>
+      <form id="add-book-form">
+        <label for="book-title">Title</label>
+        <input id="book-title" required>
+        <label for="book-author">Author</label>
+        <input id="book-author" required>
+        <label for="book-category">Category</label>
+        <select id="book-category">
+          <option>Fiction</option>
+          <option>Science</option>
+          <option>History</option>
+          <option>Reference</option>
+        </select>
+        <button type="submit">Save book</button>
+      </form>
+    </section>
+
+    <section id="borrow" class="panel">
+      <h2>Borrow or return a book</h2>
+      <form id="borrow-form">
+        <label for="borrow-member">Member</label>
+        <select id="borrow-member" required></select>
+        <label for="borrow-book">Book</label>
+        <select id="borrow-book" required></select>
+        <button type="submit">Borrow book</button>
+      </form>
+
+      <h3>Books currently on loan</h3>
+      <table id="loans-table">
+        <thead>
+          <tr><th>Book</th><th>Member</th><th>Due date</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="loans-empty" class="empty" hidden>No books are on loan right now.</p>
+    </section>
+
+    <section id="members" class="panel">
+      <h2>Library members</h2>
+      <form id="member-form">
+        <label for="member-name">Full name</label>
+        <input id="member-name" required>
+        <label for="member-class">Class</label>
+        <input id="member-class" placeholder="e.g. Form 3B" required>
+        <button type="submit">Register member</button>
+      </form>
+      <ul id="member-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Open Monday to Friday, 7:30 am to 4:30 pm. Books are due back after 14 days.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="script.js"></script>
+</body>
+</body>
+</html>
